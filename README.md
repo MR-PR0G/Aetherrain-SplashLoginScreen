@@ -1,60 +1,78 @@
-# AetherRain (arain)
+# AetherRain 🌧️✨
+A mesmerizing matrix-style splash screen / system welcome animation, built with GTK and Cairo.
 
-A lightweight, high-performance, and ultra-precise Matrix-style digital rain splash screen engine written in C using `ncurses`. Specifically designed as a lightning-fast, full-screen boot/login visual hook for modern Linux Desktop Environments and Window Managers like **Niri WM** or Display Managers (**DMS**).
+<table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <h4>🛠️ TUI Configuration Mode</h4>
+      <video src="https://github.com/user/repo/assets/video1.mp4" width="100%" controls autoplay loop muted></video>
+    </td>
+    <td width="50%" align="center">
+      <h4>🌌 Pure Splash Mode</h4>
+      <video src="https://github.com/user/repo/assets/video2.mp4" width="100%" controls autoplay loop muted></video>
+    </td>
+  </tr>
+</table>
 
----
+## 🧠 What is AetherRain?
+AetherRain is a full‑screen, interactive splash screen that runs after login – before your desktop environment or application launches.
+It creates a “digital rain” effect (Matrix‑style) that gradually reveals a custom text message.
+Perfect for system integrators, themers, or anyone wanting a stunning pre‑session animation.
+## ✨ Features
 
-## 🌌 The Philosophy Behind the Name
+  - 🟢 Digital rain with dynamic speed & density
 
-* **Full Name:** AetherRain
-* **CLI Command / Short Name:** `arain`
+  - 📝 Customizable text (editable from menu)
 
-### Why "AetherRain"?
-In ancient science and 19th-century physics, **Aether** (Ether) was the invisible, weightless, and omnipresent substance believed to permeate all space, acting as the medium through which light and universal energies propagate. 
+  - 🎨 Full RGB color picker (presets + manual)
 
-Combined with **Rain**, the name signifies a "stream of pure, cosmic digital energy." In this project, the text matrix is completely hidden in the void; it does not simply appear—it physically materializes only when the invisible *Aether streams* pass over it.
+  - ⚡ Visual effects during reveal: Matrix Random, Neon Blink, Horizontal Glitch
 
----
+  - 🎬 Outro effects for text (fade, gravity fall, flicker) and for rain (fade, chaos burst)
 
-## ⚡ Features
+  - ⌨️ Keyboard‑driven TUI menu (no mouse needed)
 
-* **Frame-Accurate Text Synchronization:** Characters are decrypted precisely when a Layer-0 (foreground) rain head intersects the character coordinates.
-* **Highly Configurable Engine:** Control generation speed, rain density, and transition modes.
-* **Custom Dynamic States:** Features 5 distinct text-holding modes (e.g., Active Glitch, Neon Pulse) and 6 dynamic exit/outro systems (e.g., Kinetic Scatter, EMP Burnout).
-* **Automated Patch-Installer:** The interactive script updates configurations directly inside the C source and re-compiles instantly without bloat.
+  - 🖥️ Full‑screen borderless window
 
----
+  - 🔧 Configurable build / hold timings
 
-## 🛠️ Installation & Configuration
-
-### Prerequisites
-Ensure you have `gcc` and the `ncurses` development libraries installed on your system.
-
+  - ❄️ Fast, pure C / GTK4 – lightweight and portable
+## 🚀Quick Start & Binary Installation 
+If you have downloaded the pre-compiled binary executable you can instantly run the configuration utility and deploy the splash screen into your system without needing any build tools
 ```bash
-# Ubuntu/Debian
-sudo apt install build-essential libncurses5-dev libncursesw5-dev
-
-# Arch Linux
-sudo pacman -S base-devel ncurses
-
-# Fedora
-sudo dnf groupinstall "Development Tools"
-sudo dnf install ncurses-devel
-
+# 1. Give executable permissions to the downloaded binary
+chmod +x aetherrain
+# 2. Launch the interactive TUI configuration panel directly
+./aetherrain
 ```
-Setup Guide
-
-  Clone the repository and navigate into the directory:
-  
-    git clone [https://github.com/yourusername/aetherrain.git](https://github.com/yourusername/aetherrain.git)
-    cd aetherrain
-    
-  Make the installer executable and run it:
-  
-    chmod +x setup.sh
-    ./setup.sh
-
-Profile Options
- Default Profile: Instantly configures the splash to run optimally within your custom time constraints (3s  text build up, 2s combined hold and exit animation).
-
- Manual Profile: Allows you to custom-define text generation timings, stream velocities, custom text/rain RGB values, and distinct animation modules.
+🎮 How to Use
+- Navigation – Arrow keys (← → ↑ ↓)
+- Select – Enter
+- Quit – Q key
+## 📦 System Dependencies
+While most modern Linux distributions come pre-equipped with GTK environments, you will need the development headers to compile the binary from source.
+For Arch Linux:
+```bash
+sudo pacman -S gtk4 cairo gcc pkg-config base-devel
+```
+For Ubuntu:
+```bash
+sudo apt install libgtk-4-dev libcairo2-dev gcc pkg-config build-essential
+```
+## 🛠️ Compilation & Optimization Manual
+If you are a developer or want to build the binary manually from the source code, use the following compilation paradigms:
+### 1. Developer Control Dashboard Mode
+This mode keeps the interactive TUI configuration panel active at the bottom, allowing you to dynamically adjust rain scales, text variables, and colors before deploying:
+```bash
+gcc -O3 aetherrain.c -o aetherrain $(pkg-config --cflags --libs gtk4) -lm
+```
+### 2. Standalone System Splash Mode (Production)
+This mode compiles the code with the strict internal environment flag (-DPRODUCTION_MODE). It strips away all setup UI interfaces, delivering a pure, ultra-fast, and performance-optimized system splash screen that immediately triggers the matrix animation and exits cleanly:
+```bash
+gcc -O3 aetherrain.c -o aetherrain-splash $(pkg-config --cflags --libs gtk4) -lm -DPRODUCTION_MODE
+```
+## 🗃️ Architecture and Configuration Storage
+The engine writes configuration profiles persistently in clean unified standard layouts inside the user configuration matrix:
+- Storage Location: ~/.config/aetherrain/config.conf
+- Target Build Location: ~/.local/bin/aetherrain-splash
+- Autostart Configuration: ~/.config/autostart/aetherrain.desktop
