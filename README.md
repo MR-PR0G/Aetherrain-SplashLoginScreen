@@ -1,19 +1,8 @@
 # AetherRain 🌧️✨
 A mesmerizing matrix-style splash screen / system welcome animation, built with GTK and Cairo.
-
-<table width="100%">
-  <tr>
-    <td width="50%" align="center">
-      <h4>🛠️ TUI Configuration Mode</h4>
-      <video src="https://github.com/user/repo/assets/video1.mp4" width="100%" controls autoplay loop muted></video>
-    </td>
-    <td width="50%" align="center">
-      <h4>🌌 Pure Splash Mode</h4>
-      <video src="https://github.com/user/repo/assets/video2.mp4" width="100%" controls autoplay loop muted></video>
-    </td>
-  </tr>
-</table>
-
+<div align="center">
+  <img src="https://github.com/MR-PR0G/Aetherrain-SplashLoginScreen/blob/main/Demos/DemoAtherrainUi.png" alt="ScreenShot" width="500" style="">
+</div>
 ## 🧠 What is AetherRain?
 AetherRain is a full‑screen, interactive splash screen that runs after login – before your desktop environment or application launches.
 It creates a “digital rain” effect (Matrix‑style) that gradually reveals a custom text message.
