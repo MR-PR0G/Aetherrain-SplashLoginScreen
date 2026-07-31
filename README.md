@@ -52,6 +52,10 @@ For Ubuntu:
 ```bash
 sudo apt install libgtk-4-dev libcairo2-dev gcc pkg-config build-essential
 ```
+For Fedora:
+```bash
+sudo dnf install -y gtk4-devel gtk4-layer-shell cairo-devel gcc pkgconf-pkg-config make automake autoconf gcc-c++
+```
 ## 🛠️ Compilation & Optimization Manual
 If you are a developer or want to build the binary manually from the source code, use the following compilation paradigms:
 ### 1. Developer Control Dashboard Mode
